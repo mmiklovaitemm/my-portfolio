@@ -49,7 +49,7 @@ export default function About({
               className="relative aspect-[3/4] w-full max-w-sm mx-auto md:max-w-none bg-zinc-900 rounded-2xl overflow-hidden border border-white/5 shadow-2xl"
             >
               <Image
-                src={`${base}/ugne-hero.webp`}
+                src="/ugne-hero.webp"
                 alt="Portrait"
                 fill
                 priority

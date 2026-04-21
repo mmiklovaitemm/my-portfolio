@@ -10,23 +10,20 @@ interface ProjectsProps {
   scrollConfig: { once: boolean; amount: number };
 }
 
-const isProd = process.env.NODE_ENV === "production";
-const base = isProd ? "/my-portfolio" : "";
-
 const projectsData = [
   {
     id: "01",
     title: "UM Studio Jewelry",
     subtitle: "Bachelor's Thesis Project",
     images: [
-      `${base}/projects/umStudio1.webp`,
-      `${base}/projects/umStudio2.webp`,
-      `${base}/projects/umStudio-cart.webp`,
-      `${base}/projects/umStudio-checkout.webp`,
-      `${base}/projects/umStudio-mobile1.webp`,
-      `${base}/projects/umStudio-mobile2.webp`,
-      `${base}/projects/umStudioAdmin1.webp`,
-      `${base}/projects/umStudioAdmin2.webp`,
+      "/projects/umStudio1.webp",
+      "/projects/umStudio2.webp",
+      "/projects/umStudio-cart.webp",
+      "/projects/umStudio-checkout.webp",
+      "/projects/umStudio-mobile1.webp",
+      "/projects/umStudio-mobile2.webp",
+      "/projects/umStudioAdmin1.webp",
+      "/projects/umStudioAdmin2.webp",
     ],
     description:
       "A full-stack luxury e-commerce platform featuring a custom admin dashboard, automated inventory tracking, and Cloudinary image optimization. Built with React, Node.js, and MySQL.",
