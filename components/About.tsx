@@ -10,7 +10,6 @@ interface AboutProps {
   photoVars: Variants;
   containerVars: Variants;
 }
-const base = process.env.NODE_ENV === "production" ? "/my-portfolio" : "";
 
 export default function About({
   scrollConfig,
