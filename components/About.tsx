@@ -18,6 +18,15 @@ export default function About({
   photoVars,
   containerVars,
 }: AboutProps) {
+  const techStack = [
+    { name: "Next.js", src: "/logos/next-js.svg" },
+    { name: "React", src: "/logos/react.svg" },
+    { name: "Tailwind", src: "/logos/tailwind-css-2.svg" },
+    { name: "TypeScript", src: "/logos/typescript.svg" },
+    { name: "JavaScript", src: "/logos/javascript-1.svg" },
+    { name: "Framer Motion", src: "/logos/framer-1.svg" },
+  ];
+
   return (
     <section
       id="about"
@@ -154,67 +163,20 @@ export default function About({
                 Tech Stack
               </h3>
               <div className="grid grid-cols-2 gap-y-5 md:gap-y-6 gap-x-3">
-                {[
-                  {
-                    name: "Next.js",
-                    path: "M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm3.5 14.5h-1.5l-4-5.25v5.25H8.5v-9h1.5l4 5.25v-5.25h1.5v9z",
-                  },
-                  { name: "React", custom: "react" },
-                  {
-                    name: "Tailwind",
-                    path: "M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C7.666 17.818 9.027 19 12 19c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z",
-                  },
-                  {
-                    name: "TypeScript",
-                    path: "M0 0h24v24H0Zm6 6h7.5v1.65H9.75v10.35H6Zm13.59 1.65H15.6v1.5h1.5v5.85q0 .9-.413 1.35Q16.275 16.8 15.3 16.8q-.75 0-1.162-.3T13.5 15.6v-1.5h-1.5v1.5q0 1.2.75 1.95t2.25.75q1.575 0 2.363-.9Q18.15 16.5 18.15 15v-7.35Zm1.41 1.5V15q0 1.5-.788 2.4Q19.35 18.3 18 18.3q-1.35 0-2.137-.9Q15.075 16.5 15.075 15v-7.35H13.5v7.35q0 2.1 1.125 3.15t3.375 1.05q2.25 0 3.375-1.05T22.5 15v-7.35H21Zm.45-.45h-1.5v-1.5h1.5v1.5ZM3 3v18h18V3H3Z",
-                  },
-                  {
-                    name: "JavaScript",
-                    path: "M0 0h24v24H0V0zm22.034 18.268c-.175-1.121-.858-1.846-2.155-2.327-1.154-.428-1.556-.617-1.556-1.131 0-.309.255-.559.715-.559.463 0 .735.214.92.593l1.714-1.049c-.44-1.103-1.464-1.55-2.603-1.55-1.636 0-2.735.916-2.735 2.257 0 1.21.727 1.838 2.304 2.451 1.029.406 1.439.67 1.439 1.131 0 .463-.343.687-.874.687-.67 0-1.053-.352-1.307-.853l-1.743 1.059c.47 1.059 1.44 1.743 3.033 1.743 1.938 0 2.924-1.029 2.924-2.451zm-9.313-1.722v-4.102h-1.938v4.184c0 1.357-.597 2.053-1.758 2.053-.591 0-1.042-.23-1.341-.611L5.94 19.124c.484.814 1.341 1.365 2.91 1.365 2.327 0 3.871-1.307 3.871-3.943z",
-                  },
-                  {
-                    name: "Framer Motion",
-                    path: "M0 0v24h12l12-12L12 0H0Zm2.4 2.4h7.2v7.2H2.4V2.4Zm0 9.6h7.2v7.2l-7.2-7.2Z",
-                  },
-                ].map((tech) => (
+                {techStack.map((tech) => (
                   <div
                     key={tech.name}
                     className="flex items-center gap-2 md:gap-3 group cursor-default"
                   >
-                    <div className="w-8 h-8 md:w-9 md:h-9 bg-zinc-800 rounded flex items-center justify-center transition-all duration-500 shrink-0 group-hover:bg-white">
-                      <svg
-                        viewBox={
-                          tech.custom === "react"
-                            ? "-11.5 -10.23174 23 20.46348"
-                            : "0 0 24 24"
-                        }
-                        className="w-4 h-4 md:w-5 md:h-5 fill-white group-hover:fill-black transition-colors duration-500"
-                      >
-                        {tech.custom === "react" ? (
-                          <>
-                            <circle cx="0" cy="0" r="2.05" />
-                            <g
-                              stroke="currentColor"
-                              strokeWidth="1"
-                              fill="none"
-                            >
-                              <ellipse rx="11" ry="4.2" />
-                              <ellipse
-                                rx="11"
-                                ry="4.2"
-                                transform="rotate(60)"
-                              />
-                              <ellipse
-                                rx="11"
-                                ry="4.2"
-                                transform="rotate(120)"
-                              />
-                            </g>
-                          </>
-                        ) : (
-                          <path d={tech.path} />
-                        )}
-                      </svg>
+                    <div className="w-8 h-8 md:w-9 md:h-9 bg-zinc-800 rounded flex items-center justify-center transition-all duration-500 shrink-0 group-hover:bg-zinc-700">
+                      <div className="relative w-5 h-5 md:w-6 md:h-6 transition-all duration-500 grayscale group-hover:grayscale-0 group-hover:scale-110">
+                        <Image
+                          src={tech.src}
+                          alt={tech.name}
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
                     </div>
                     <span className="text-[8px] md:text-[9px] uppercase font-bold text-zinc-400 group-hover:text-white transition-all duration-500 font-syne">
                       {tech.name}
