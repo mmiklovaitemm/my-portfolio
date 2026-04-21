@@ -36,9 +36,8 @@ export default function About({
           </span>
         </motion.div>
 
-        {/* Hero Area: Trijų stulpelių tinklelis */}
+        {/* Hero Area */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 items-start mb-24">
-          {/* 1 STULPELIS: Nuotrauka */}
           <div className="md:col-span-4 sticky md:top-32 order-2 md:order-1">
             <motion.div
               initial="initial"
@@ -58,7 +57,6 @@ export default function About({
             </motion.div>
           </div>
 
-          {/* 2 STULPELIS: Tekstas */}
           <div className="md:col-span-6 space-y-6 md:space-y-8 order-1 md:order-2">
             <div className="relative w-full">
               <motion.h2
@@ -98,7 +96,6 @@ export default function About({
             </motion.div>
           </div>
 
-          {/* 3 STULPELIS: Linkai */}
           <div className="md:col-span-2 pt-4 md:pt-40 lg:pt-48 order-3">
             <motion.div
               initial="initial"
@@ -127,7 +124,7 @@ export default function About({
           </div>
         </div>
 
-        {/* Informacinis tinklelis (Education, Tech Stack, Path, etc.) */}
+        {/* Info Grid */}
         <motion.div
           initial="initial"
           whileInView="animate"
@@ -135,7 +132,7 @@ export default function About({
           variants={containerVars}
           className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 items-stretch"
         >
-          {/* 1 STULPELIS: Education & Tech Stack */}
+          {/* Education & Tech Stack */}
           <motion.div variants={itemVars} className="flex flex-col gap-6">
             <div className="bg-zinc-900/40 border border-white/5 p-6 md:p-8 rounded-2xl flex-1">
               <h3 className="text-zinc-500 uppercase text-[10px] tracking-[0.4em] font-bold mb-4">
@@ -156,42 +153,44 @@ export default function About({
               <h3 className="text-zinc-500 uppercase text-center text-[10px] tracking-[0.4em] font-bold mb-8 font-syne">
                 Tech Stack
               </h3>
-              <div className="grid grid-cols-2 gap-y-6 md:gap-y-8 gap-x-4">
-                {/* Ikonų elementai - pritaikyti mažesniems tarpams mobiliuosiuose */}
+              <div className="grid grid-cols-2 gap-y-5 md:gap-y-6 gap-x-3">
                 {[
                   {
                     name: "Next.js",
-                    color: "white",
                     path: "M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm3.5 14.5h-1.5l-4-5.25v5.25H8.5v-9h1.5l4 5.25v-5.25h1.5v9z",
                   },
-                  { name: "React", color: "#61DAFB", custom: true },
+                  { name: "React", custom: "react" },
                   {
                     name: "Tailwind",
-                    color: "#38B2AC",
                     path: "M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C7.666 17.818 9.027 19 12 19c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z",
                   },
                   {
+                    name: "TypeScript",
+                    path: "M1.125 0C.506 0 0 .506 0 1.125v21.75C0 23.494.506 24 1.125 24h21.75c.619 0 1.125-.506 1.125-1.125V1.125C24 .506 23.494 0 22.875 0H1.125zm17.163 9.395h3.013v12.055c0 1.353-.615 2.155-1.765 2.155-.595 0-1.135-.23-1.46-.615l1.04-1.815c.165.23.35.345.545.345.3 0 .425-.19.425-.51V11.45h-1.798V9.395zm-6.685 0h2.05v12.055h-2.05V9.395z",
+                  },
+                  {
                     name: "JavaScript",
-                    color: "#F7DF1E",
                     path: "M0 0h24v24H0V0zm22.034 18.268c-.175-1.121-.858-1.846-2.155-2.327-1.154-.428-1.556-.617-1.556-1.131 0-.309.255-.559.715-.559.463 0 .735.214.92.593l1.714-1.049c-.44-1.103-1.464-1.55-2.603-1.55-1.636 0-2.735.916-2.735 2.257 0 1.21.727 1.838 2.304 2.451 1.029.406 1.439.67 1.439 1.131 0 .463-.343.687-.874.687-.67 0-1.053-.352-1.307-.853l-1.743 1.059c.47 1.059 1.44 1.743 3.033 1.743 1.938 0 2.924-1.029 2.924-2.451zm-9.313-1.722v-4.102h-1.938v4.184c0 1.357-.597 2.053-1.758 2.053-.591 0-1.042-.23-1.341-.611L5.94 19.124c.484.814 1.341 1.365 2.91 1.365 2.327 0 3.871-1.307 3.871-3.943z",
+                  },
+                  {
+                    name: "Framer Motion",
+                    path: "M0 0l12 12L24 0H0zm0 12l12 12l12-12H0z",
                   },
                 ].map((tech) => (
                   <div
                     key={tech.name}
-                    className="flex items-center gap-3 md:gap-4 group"
+                    className="flex items-center gap-2 md:gap-3 group cursor-default"
                   >
-                    <div
-                      className={`w-9 h-9 md:w-10 md:h-10 bg-zinc-800 rounded flex items-center justify-center transition-all duration-500 shrink-0 hover:bg-white`}
-                    >
+                    <div className="w-8 h-8 md:w-9 md:h-9 bg-zinc-800 rounded flex items-center justify-center transition-all duration-500 shrink-0 group-hover:bg-white">
                       <svg
                         viewBox={
-                          tech.custom
+                          tech.custom === "react"
                             ? "-11.5 -10.23174 23 20.46348"
                             : "0 0 24 24"
                         }
-                        className="w-5 h-5 md:w-6 md:h-6 fill-white hover:fill-black transition-colors"
+                        className="w-4 h-4 md:w-5 md:h-5 fill-white group-hover:fill-black transition-colors duration-500"
                       >
-                        {tech.custom ? (
+                        {tech.custom === "react" ? (
                           <>
                             <circle cx="0" cy="0" r="2.05" />
                             <g
@@ -217,7 +216,7 @@ export default function About({
                         )}
                       </svg>
                     </div>
-                    <span className="text-[9px] md:text-[10px] uppercase font-bold text-zinc-400 group-hover:text-white transition-all font-syne">
+                    <span className="text-[8px] md:text-[9px] uppercase font-bold text-zinc-400 group-hover:text-white transition-all duration-500 font-syne">
                       {tech.name}
                     </span>
                   </div>
@@ -226,7 +225,7 @@ export default function About({
             </div>
           </motion.div>
 
-          {/* 2 STULPELIS: Path */}
+          {/* Path */}
           <motion.div
             variants={itemVars}
             className="bg-zinc-900/40 border border-white/5 p-6 md:p-8 rounded-2xl flex flex-col"
@@ -259,7 +258,7 @@ export default function About({
             </div>
           </motion.div>
 
-          {/* 3 STULPELIS: Capabilities & Language */}
+          {/* Capabilities & Language */}
           <motion.div
             variants={itemVars}
             className="flex flex-col gap-6 sm:col-span-2 md:col-span-1"
