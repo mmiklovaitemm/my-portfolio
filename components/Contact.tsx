@@ -47,14 +47,30 @@ export default function Contact({
     }
   };
 
-  const inputStyles =
-    "w-full bg-transparent border-b border-white/20 py-2 focus:border-white outline-none transition-colors duration-500 font-light text-sm md:text-base text-white autofill:bg-transparent [-webkit-box-shadow:0_0_0_1000px_black_inset_!important] [-webkit-text-fill-color:white_!important]";
+  const inputStyles = `
+    w-full bg-transparent border-b border-white/20 py-2 focus:border-white 
+    outline-none transition-colors duration-500 font-light text-sm md:text-base text-white
+    autofill:bg-black
+  `;
 
   return (
     <section
       id="contact"
       className="bg-black text-white py-16 md:py-24 px-6 md:px-12 relative z-20 border-t border-white/10 scroll-mt-32"
     >
+      <style jsx>{`
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus,
+        textarea:-webkit-autofill,
+        textarea:-webkit-autofill:hover,
+        textarea:-webkit-autofill:focus {
+          -webkit-text-fill-color: white !important;
+          -webkit-box-shadow: 0 0 0px 1000px black inset !important;
+          transition: background-color 5000s ease-in-out 0s;
+        }
+      `}</style>
+
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial="initial"
