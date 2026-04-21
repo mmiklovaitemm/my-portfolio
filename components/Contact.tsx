@@ -23,7 +23,6 @@ export default function Contact({
     setResult("Sending....");
 
     const formData = new FormData(event.currentTarget);
-
     formData.append("access_key", "829439ae-9386-4fe2-8764-58f73bd407f5");
 
     try {
@@ -38,18 +37,18 @@ export default function Contact({
         setResult("Message sent successfully!");
         (event.target as HTMLFormElement).reset();
       } else {
-        console.log("Error", data);
         setResult("Something went wrong. Please try again.");
       }
     } catch (error) {
-      console.error(error);
       setResult("Could not connect to the server.");
     } finally {
       setIsSubmitting(false);
-      // Message disappears after 5 seconds
       setTimeout(() => setResult(""), 5000);
     }
   };
+
+  const inputStyles =
+    "w-full bg-transparent border-b border-white/20 py-2 focus:border-white outline-none transition-colors duration-500 font-light text-sm md:text-base text-white autofill:bg-transparent [-webkit-box-shadow:0_0_0_1000px_black_inset_!important] [-webkit-text-fill-color:white_!important]";
 
   return (
     <section
@@ -64,7 +63,7 @@ export default function Contact({
           variants={containerVars}
           className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16"
         >
-          {/* LEFT SIDE: Heading + Info */}
+          {/* LEFT SIDE */}
           <div className="md:col-span-6 space-y-8 md:space-y-12">
             <div className="overflow-hidden">
               <motion.h2
@@ -102,18 +101,14 @@ export default function Contact({
                     type="text"
                     name="name"
                     required
-                    className="w-full bg-transparent border-b border-white/20 py-2 focus:border-white outline-none transition-colors duration-500 font-light text-sm md:text-base"
+                    className={inputStyles}
                   />
                 </motion.div>
                 <motion.div variants={itemVars} className="space-y-2">
                   <label className="text-[10px] uppercase tracking-widest text-zinc-500 font-bold">
                     Last Name
                   </label>
-                  <input
-                    type="text"
-                    name="last_name"
-                    className="w-full bg-transparent border-b border-white/20 py-2 focus:border-white outline-none transition-colors duration-500 font-light text-sm md:text-base"
-                  />
+                  <input type="text" name="last_name" className={inputStyles} />
                 </motion.div>
               </div>
 
@@ -125,7 +120,7 @@ export default function Contact({
                   type="email"
                   name="email"
                   required
-                  className="w-full bg-transparent border-b border-white/20 py-2 focus:border-white outline-none transition-colors duration-500 font-light text-sm md:text-base"
+                  className={inputStyles}
                 />
               </motion.div>
 
@@ -137,7 +132,7 @@ export default function Contact({
                   name="message"
                   rows={3}
                   required
-                  className="w-full bg-transparent border-b border-white/20 py-2 focus:border-white outline-none transition-colors duration-500 font-light resize-none text-sm md:text-base"
+                  className={`${inputStyles} resize-none`}
                 />
               </motion.div>
 
