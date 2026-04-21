@@ -25,7 +25,7 @@ export default function Hero({
         <div className="overflow-hidden">
           <motion.span
             variants={itemVars}
-            className="block text-[15vw] md:text-[10vw] leading-[0.85] tracking-tighter pt-4 font-bold italic"
+            className="block text-[15vw] md:text-[10vw] leading-[0.85] tracking-tighter pt-4 font-bold italic pr-[0.05em]"
           >
             Web
           </motion.span>
@@ -33,7 +33,7 @@ export default function Hero({
         <div className="overflow-hidden">
           <motion.span
             variants={itemVars}
-            className="block text-[15vw] md:text-[10vw] leading-[0.85] tracking-tighter font-bold italic"
+            className="block text-[15vw] md:text-[10vw] leading-[0.85] tracking-tighter font-bold italic pr-[0.05em]"
           >
             Developer
           </motion.span>
@@ -45,7 +45,7 @@ export default function Hero({
         variants={itemVars}
         className="absolute bottom-24 right-6 md:bottom-8 md:right-6 text-right z-30 uppercase italic font-medium text-black"
       >
-        <p className="text-3xl md:text-5xl leading-[0.9] tracking-tighter uppercase italic">
+        <p className="text-3xl md:text-5xl leading-[0.9] tracking-tighter uppercase italic pr-[0.02em]">
           {"//"} Ugnė Miklovaitė <br />
           <span className="text-red-500 not-italic">Portfolio &apos;26</span>
         </p>
