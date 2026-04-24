@@ -31,6 +31,23 @@ const projectsData = [
     link: "https://github.com/mmiklovaitemm/bd-shop",
     live: "https://bd-shop-gray.vercel.app/",
   },
+
+  {
+    id: "02",
+    title: "WeatherNow",
+    subtitle: "Real-time Weather Application",
+    images: [
+      "/projects/WeatherNow-MainPage.png",
+      "/projects/WeatherNow-Search.png",
+      "/projects/WeatherNow-UnitsBTN.png",
+      "/projects/WeatherNow-MobileView.png",
+    ],
+    description:
+      "A sleek weather application that provides real-time data using the OpenWeather API. It features dynamic background changes based on weather conditions and a toggle for metric/imperial units.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "OpenWeather API"],
+    link: "https://github.com/mmiklovaitemm/weather-app",
+    live: "https://mmiklovaitemm.github.io/weather-app/",
+  },
 ];
 
 export default function Projects({
