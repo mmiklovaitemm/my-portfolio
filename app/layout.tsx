@@ -7,7 +7,12 @@ export const metadata: Metadata = {
   title: "Ugnė Miklovaitė | Portfolio",
   description: "Software Engineering student & Frontend Developer",
   icons: {
-    icon: "/logos/UM-logo.PNG",
+    icon: [
+      {
+        url: "/logos/UM-logo.PNG",
+        type: "image/png",
+      },
+    ],
     shortcut: "/logos/UM-logo.PNG",
     apple: "/logos/UM-logo.PNG",
   },
