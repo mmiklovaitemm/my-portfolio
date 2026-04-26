@@ -121,17 +121,13 @@ export default function Projects({
             variants={containerVars}
             className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-center py-4 md:py-20"
           >
-            {/* NUMBER */}
+            {/* NUMERIS */}
             <div className="md:col-span-4 relative flex items-center justify-center py-4 md:py-0">
               <span
                 className="text-[40vw] md:text-[12rem] font-bold leading-none select-none text-transparent"
                 style={{
-                  textShadow: `
-                    -1px -1px 0 rgba(255, 255, 255, 0.4),  
-                     1px -1px 0 rgba(255, 255, 255, 0.4),
-                    -1px  1px 0 rgba(255, 255, 255, 0.4),
-                     1px  1px 0 rgba(255, 255, 255, 0.4)
-                  `,
+                  WebkitTextStroke: "1px rgba(255, 255, 255, 0.4)",
+                  paintOrder: "stroke fill",
                 }}
               >
                 {project.id}
@@ -218,6 +214,7 @@ export default function Projects({
         ))}
       </div>
 
+      {/* Galerijos modalas */}
       <AnimatePresence>
         {activeProject && (
           <motion.div
