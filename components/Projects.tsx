@@ -4,13 +4,24 @@ import { motion, Variants, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 
+interface Project {
+  id: string;
+  title: string;
+  subtitle: string;
+  images: string[];
+  description: string;
+  tech: string[];
+  link: string;
+  live: string;
+}
+
 interface ProjectsProps {
   containerVars: Variants;
   itemVars: Variants;
   scrollConfig: { once: boolean; amount: number };
 }
 
-const projectsData = [
+const projectsData: Project[] = [
   {
     id: "01",
     title: "UM Studio Jewelry",
@@ -26,7 +37,7 @@ const projectsData = [
       "/projects/umStudioAdmin2.webp",
     ],
     description:
-      "A full-stack luxury e-commerce platform featuring a custom admin dashboard, automated inventory tracking, and Cloudinary image optimization. Built with React, Node.js, and MySQL.",
+      "A full-stack e-commerce platform featuring a custom admin dashboard, automated inventory tracking, and Cloudinary image optimization. Built with React, Node.js, and MySQL.",
     tech: ["React", "Node.js", "MySQL", "Zustand", "Framer Motion"],
     link: "https://github.com/mmiklovaitemm/bd-shop",
     live: "https://bd-shop-gray.vercel.app/",
@@ -42,7 +53,7 @@ const projectsData = [
       "/projects/WeatherNow-MobileView.png",
     ],
     description:
-      "A sleek weather application that provides real-time data using the OpenWeather API. It features dynamic background changes based on weather conditions and a toggle for metric/imperial units.",
+      "Weather application that provides real-time data using the OpenWeather API. It features dynamic background changes based on weather conditions and a toggle for metric/imperial units.",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "OpenWeather API"],
     link: "https://github.com/mmiklovaitemm/weather-app",
     live: "https://mmiklovaitemm.github.io/weather-app/",
@@ -54,12 +65,10 @@ export default function Projects({
   itemVars,
   scrollConfig,
 }: ProjectsProps) {
-  const [selectedProject, setSelectedProject] = useState<
-    (typeof projectsData)[0] | null
-  >(null);
+  const [activeProject, setActiveProject] = useState<Project | null>(null);
   const galleryRef = useRef<HTMLDivElement>(null);
 
-  const closeGallery = () => setSelectedProject(null);
+  const closeGallery = () => setActiveProject(null);
 
   useEffect(() => {
     const handleResize = () => {
@@ -68,7 +77,7 @@ export default function Projects({
       }
     };
 
-    if (selectedProject) {
+    if (activeProject) {
       document.body.style.overflow = "hidden";
       document.body.classList.add("gallery-open");
 
@@ -84,7 +93,7 @@ export default function Projects({
       document.body.style.overflow = "unset";
       document.body.classList.remove("gallery-open");
     }
-  }, [selectedProject]);
+  }, [activeProject]);
 
   return (
     <section
@@ -110,16 +119,16 @@ export default function Projects({
             whileInView="animate"
             viewport={scrollConfig}
             variants={containerVars}
-            className={`grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-center py-4 md:py-20`}
+            className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-center py-4 md:py-20"
           >
             {/* Number */}
             <div className="md:col-span-4 relative flex items-center justify-center py-4 md:py-0">
-              <span className="text-[40vw] md:text-[12rem] font-bold leading-none select-none text-white/10 md:text-transparent md:[-webkit-text-stroke:1px_rgba(255,255,255,0.4)]">
+              <span className="text-[40vw] md:text-[12rem] font-bold leading-none select-none text-white/10 md:text-transparent md:[-webkit-text-stroke:1px_rgba(255,255,255,0.6)]">
                 {project.id}
               </span>
             </div>
 
-            {/* Project info */}
+            {/* Project information */}
             <div className="md:col-span-8 space-y-6 md:space-y-8 pl-0 md:pl-12">
               <div className="space-y-2 text-left">
                 <motion.p
@@ -185,7 +194,7 @@ export default function Projects({
                 </a>
 
                 <button
-                  onClick={() => setSelectedProject(project)}
+                  onClick={() => setActiveProject(project)}
                   className="hidden md:inline-flex group/link items-center gap-2 text-[10px] uppercase tracking-[0.3em] font-bold text-zinc-400 hover:text-white transition-colors border-l border-white/20 pl-6"
                 >
                   <span>View Images</span>
@@ -199,8 +208,9 @@ export default function Projects({
         ))}
       </div>
 
+      {/* Gallery */}
       <AnimatePresence>
-        {selectedProject && (
+        {activeProject && (
           <motion.div
             ref={galleryRef}
             initial={{ opacity: 0 }}
@@ -228,11 +238,11 @@ export default function Projects({
                   Visual Showcase
                 </span>
                 <h2 className="text-6xl font-bold uppercase tracking-tighter text-white">
-                  {selectedProject.title}
+                  {activeProject.title}
                 </h2>
               </div>
 
-              {selectedProject.images.map((img, i) => (
+              {activeProject.images.map((img, i) => (
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -243,7 +253,7 @@ export default function Projects({
                 >
                   <Image
                     src={img}
-                    alt={`Screenshot ${i + 1}`}
+                    alt={`${activeProject.title} screenshot ${i + 1}`}
                     fill
                     className="object-contain"
                     unoptimized
