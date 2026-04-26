@@ -31,7 +31,6 @@ const projectsData = [
     link: "https://github.com/mmiklovaitemm/bd-shop",
     live: "https://bd-shop-gray.vercel.app/",
   },
-
   {
     id: "02",
     title: "WeatherNow",
@@ -55,10 +54,12 @@ export default function Projects({
   itemVars,
   scrollConfig,
 }: ProjectsProps) {
-  const [selectedGallery, setSelectedGallery] = useState<string[] | null>(null);
+  const [selectedProject, setSelectedProject] = useState<
+    (typeof projectsData)[0] | null
+  >(null);
   const galleryRef = useRef<HTMLDivElement>(null);
 
-  const closeGallery = () => setSelectedGallery(null);
+  const closeGallery = () => setSelectedProject(null);
 
   useEffect(() => {
     const handleResize = () => {
@@ -67,11 +68,10 @@ export default function Projects({
       }
     };
 
-    if (selectedGallery) {
+    if (selectedProject) {
       document.body.style.overflow = "hidden";
       document.body.classList.add("gallery-open");
 
-      // Sklandus uždarymas paspaudus bet kurį Nav Bar mygtuką (hashchange)
       const handleHashChange = () => closeGallery();
       window.addEventListener("hashchange", handleHashChange);
       window.addEventListener("resize", handleResize);
@@ -84,7 +84,7 @@ export default function Projects({
       document.body.style.overflow = "unset";
       document.body.classList.remove("gallery-open");
     }
-  }, [selectedGallery]);
+  }, [selectedProject]);
 
   return (
     <section
@@ -103,29 +103,23 @@ export default function Projects({
           </span>
         </motion.div>
 
-        {projectsData.map((project, index) => (
+        {projectsData.map((project) => (
           <motion.div
             key={project.id}
             initial="initial"
             whileInView="animate"
             viewport={scrollConfig}
             variants={containerVars}
-            className={`grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-center py-4 md:py-20 `}
+            className={`grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-center py-4 md:py-20`}
           >
-            {/* NUMERIS */}
+            {/* Number */}
             <div className="md:col-span-4 relative flex items-center justify-center py-4 md:py-0">
-              <span
-                className="text-[40vw] md:text-[12rem] font-bold leading-none select-none "
-                style={{
-                  WebkitTextStroke: "1px rgba(255, 255, 255, 0.6)",
-                  color: "transparent",
-                }}
-              >
+              <span className="text-[40vw] md:text-[12rem] font-bold leading-none select-none text-white/10 md:text-transparent md:[-webkit-text-stroke:1px_rgba(255,255,255,0.4)]">
                 {project.id}
               </span>
             </div>
 
-            {/* Projekto informacija */}
+            {/* Project info */}
             <div className="md:col-span-8 space-y-6 md:space-y-8 pl-0 md:pl-12">
               <div className="space-y-2 text-left">
                 <motion.p
@@ -191,7 +185,7 @@ export default function Projects({
                 </a>
 
                 <button
-                  onClick={() => setSelectedGallery(project.images)}
+                  onClick={() => setSelectedProject(project)}
                   className="hidden md:inline-flex group/link items-center gap-2 text-[10px] uppercase tracking-[0.3em] font-bold text-zinc-400 hover:text-white transition-colors border-l border-white/20 pl-6"
                 >
                   <span>View Images</span>
@@ -205,9 +199,8 @@ export default function Projects({
         ))}
       </div>
 
-      {/* Galerijos modalas only md+ */}
       <AnimatePresence>
-        {selectedGallery && (
+        {selectedProject && (
           <motion.div
             ref={galleryRef}
             initial={{ opacity: 0 }}
@@ -235,11 +228,11 @@ export default function Projects({
                   Visual Showcase
                 </span>
                 <h2 className="text-6xl font-bold uppercase tracking-tighter text-white">
-                  UM Studio Jewelry
+                  {selectedProject.title}
                 </h2>
               </div>
 
-              {selectedGallery.map((img, i) => (
+              {selectedProject.images.map((img, i) => (
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
