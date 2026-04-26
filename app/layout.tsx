@@ -45,6 +45,11 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${cormorant.variable} ${syne.variable} antialiased font-syne`}
       >
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `history.scrollRestoration = "manual"`,
+          }}
+        />
         <CursorLight />
         {children}
       </body>

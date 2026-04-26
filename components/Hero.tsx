@@ -7,20 +7,14 @@ interface HeroProps {
   scrollConfig: { once: boolean; amount: number };
 }
 
-export default function Hero({
-  containerVars,
-  itemVars,
-  scrollConfig,
-}: HeroProps) {
+export default function Hero({ containerVars, itemVars }: HeroProps) {
   return (
     <motion.section
       variants={containerVars}
       initial="initial"
-      whileInView="animate"
-      viewport={scrollConfig}
+      animate="animate"
       className="relative h-[100svh] w-full flex flex-col justify-center items-center px-4 md:px-6 overflow-hidden"
     >
-      {/* PAGRINDINIS TEKSTAS  */}
       <div className="relative z-10 text-center uppercase text-black font-bold">
         <div className="overflow-hidden">
           <motion.span
@@ -40,7 +34,6 @@ export default function Hero({
         </div>
       </div>
 
-      {/* APRAŠYMAS APAČIOJE */}
       <motion.div
         variants={itemVars}
         className="absolute bottom-24 right-6 md:bottom-8 md:right-6 text-right z-30 uppercase italic font-medium text-black"
@@ -51,7 +44,7 @@ export default function Hero({
         </p>
       </motion.div>
 
-      {/* SCROLL TO EXPLORE  */}
+      {/* SCROLL TO EXPLORE */}
       <motion.div
         animate={{
           y: [0, 12, 0],

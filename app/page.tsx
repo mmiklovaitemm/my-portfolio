@@ -8,7 +8,7 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
 export default function Home() {
-  const scrollConfig = { once: false, amount: 0.1 };
+  const scrollConfig = { once: true, amount: 0.05 };
 
   const containerVars: Variants = {
     initial: { opacity: 0 },
@@ -69,7 +69,6 @@ export default function Home() {
         scrollConfig={scrollConfig}
       />
 
-      {/* 2. Pridedame Contact sekciją puslapio gale */}
       <Contact
         containerVars={containerVars}
         itemVars={itemVars}
