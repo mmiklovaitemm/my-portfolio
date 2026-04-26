@@ -101,7 +101,7 @@ export default function Contact({
               >
                 mmiklovaitemm@gmail.com
               </a>
-              <p>+370 630 19202</p>
+              <p>+370 630 94312</p>
             </motion.div>
           </div>
 
