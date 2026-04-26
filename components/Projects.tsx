@@ -37,7 +37,7 @@ const projectsData: Project[] = [
       "/projects/umStudioAdmin2.webp",
     ],
     description:
-      "A full-stack e-commerce platform featuring a custom admin dashboard, automated inventory tracking, and Cloudinary image optimization. Built with React, Node.js, and MySQL.",
+      "A full-stack luxury e-commerce platform featuring a custom admin dashboard, automated inventory tracking, and Cloudinary image optimization. Built with React, Node.js, and MySQL.",
     tech: ["React", "Node.js", "MySQL", "Zustand", "Framer Motion"],
     link: "https://github.com/mmiklovaitemm/bd-shop",
     live: "https://bd-shop-gray.vercel.app/",
@@ -53,7 +53,7 @@ const projectsData: Project[] = [
       "/projects/WeatherNow-MobileView.png",
     ],
     description:
-      "Weather application that provides real-time data using the OpenWeather API. It features dynamic background changes based on weather conditions and a toggle for metric/imperial units.",
+      "A sleek weather application that provides real-time data using the OpenWeather API. It features dynamic background changes based on weather conditions and a toggle for metric/imperial units.",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "OpenWeather API"],
     link: "https://github.com/mmiklovaitemm/weather-app",
     live: "https://mmiklovaitemm.github.io/weather-app/",
@@ -121,14 +121,24 @@ export default function Projects({
             variants={containerVars}
             className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-center py-4 md:py-20"
           >
-            {/* Number */}
+            {/* NUMBER */}
             <div className="md:col-span-4 relative flex items-center justify-center py-4 md:py-0">
-              <span className="text-[40vw] md:text-[12rem] font-bold leading-none select-none text-white/10 md:text-transparent md:[-webkit-text-stroke:1px_rgba(255,255,255,0.6)]">
+              <span
+                className="text-[40vw] md:text-[12rem] font-bold leading-none select-none text-transparent"
+                style={{
+                  textShadow: `
+                    -1px -1px 0 rgba(255, 255, 255, 0.4),  
+                     1px -1px 0 rgba(255, 255, 255, 0.4),
+                    -1px  1px 0 rgba(255, 255, 255, 0.4),
+                     1px  1px 0 rgba(255, 255, 255, 0.4)
+                  `,
+                }}
+              >
                 {project.id}
               </span>
             </div>
 
-            {/* Project information */}
+            {/* Projekto informacija */}
             <div className="md:col-span-8 space-y-6 md:space-y-8 pl-0 md:pl-12">
               <div className="space-y-2 text-left">
                 <motion.p
@@ -208,7 +218,6 @@ export default function Projects({
         ))}
       </div>
 
-      {/* Gallery */}
       <AnimatePresence>
         {activeProject && (
           <motion.div
