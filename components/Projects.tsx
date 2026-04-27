@@ -37,7 +37,7 @@ const projectsData: Project[] = [
       "/projects/umStudioAdmin2.webp",
     ],
     description:
-      "A full-stack luxury e-commerce platform featuring a custom admin dashboard, automated inventory tracking, and Cloudinary image optimization. Built with React, Node.js, and MySQL.",
+      "Full-stack e-commerce platform featuring a custom admin dashboard, automated inventory tracking, and Cloudinary image optimization. Built with React, Node.js, and MySQL.",
     tech: ["React", "Node.js", "MySQL", "Zustand", "Framer Motion"],
     link: "https://github.com/mmiklovaitemm/bd-shop",
     live: "https://bd-shop-gray.vercel.app/",
@@ -53,7 +53,7 @@ const projectsData: Project[] = [
       "/projects/WeatherNow-MobileView.png",
     ],
     description:
-      "A sleek weather application that provides real-time data using the OpenWeather API. It features dynamic background changes based on weather conditions and a toggle for metric/imperial units.",
+      "Weather application that provides real-time data using the OpenWeather API. It features dynamic background changes based on weather conditions and a toggle for metric/imperial units.",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "OpenWeather API"],
     link: "https://github.com/mmiklovaitemm/weather-app",
     live: "https://mmiklovaitemm.github.io/weather-app/",
